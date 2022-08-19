@@ -1,0 +1,9 @@
+DATABASE NAME - javaProject
+
+mysql queries-
+
+
+create database javaProject;
+use javaProject;
+create table registrations( Username VARCHAR(50) NOT NULL, FirstName VARCHAR(200) NOT NULL, LastName VARCHAR(200), Password VARCHAR(200) NOT NULL, PRIMARY KEY (Username));
+create table poll( Username VARCHAR(50) NOT NULL, PollsCount INT(200) NOT NULL, Question VARCHAR(1000), Option1 VARCHAR(500) NOT NULL, Option2 VARCHAR(500) NOT NULL, Option3 VARCHAR(500), Option1_count INT(255), Option2_count INT(255), Option3_count INT(255),FOREIGN KEY (Username) REFERENCES registrations(Username));
