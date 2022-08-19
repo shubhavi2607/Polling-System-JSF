@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://xmlns.jcp.org/jsf/html"
+       xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Register</title>
+    </h:head>
+    <h:body>
+        <h1>REGISTER</h1>
+        
+        <!-- Home link -->
+        <h:form>
+            <h:commandLink id="command-id" action="aboutUs.xhtml">  
+            <h:outputText value="Home"></h:outputText>  
+            </h:commandLink>
+        </h:form>
+        
+        <br/><br/>
+        
+        <h:form>
+  
+            <!-- username -->
+            <h:outputLabel for="textuser">
+                <h:outputText value="Enter the username"  binding="#{R.textuser}"/>
+                <h:inputText id="textuser" value="#{R.username}" required="true">
+                    <f:validateLength minimum ="4"/>
+                </h:inputText>
+            </h:outputLabel>
+            
+            <br/><br/>
+            
+            <!-- fisrtName -->
+            <h:outputLabel for="textname">
+                <h:outputText value="Enter the first name"/>
+                <h:inputText id="textname" value="#{R.firstName}" required="true">
+                    <f:validateLength maximum="10" minimum ="5"/>
+                </h:inputText>
+            </h:outputLabel>
+            
+            <br/><br/>
+            
+            <!-- lastName -->
+             <h:outputLabel for="textnamel">
+                <h:outputText value="Enter the last name"/>
+                <h:inputText id="textnamel" value="#{R.lastName}" required="false">
+                    <!--<f:validateLength maximum="10" minimum ="5"/>-->
+                </h:inputText>
+            </h:outputLabel>
+            
+            <br/><br/>
+            
+            <!-- Password1 -->
+             <h:outputLabel for="textpass1">
+                <h:outputText value="Enter the Password" binding="#{R.textpass1}"/>
+                <h:inputSecret id="textpass1" value="#{R.pass1}" required="true">
+                    <f:validateLength minimum="8"/>
+                </h:inputSecret>
+            </h:outputLabel>
+            
+            <br/><br/>
+            
+            <!-- Password2 -->
+             <h:outputLabel for="textpass2">
+                <h:outputText value="Retype the Password"/>
+                <h:inputSecret id="textpass2" value="#{R.pass2}" required="true">
+                    <f:validateLength minimum="8"/>
+                </h:inputSecret>
+            </h:outputLabel>
+            
+            <br/><br/>
+            <h:messages styleClass="error"/>
+            <br/>
+            <!-- Register command button -->
+            <h:commandButton id="register-button" value="Register" action="#{R.submit()}"/>
+            
+        </h:form>
+        
+        <br/>
+        
+        <h:form>
+            <!-- Login command button -->
+            <h:commandButton id="login-button" value="Login" action="login.xhtml"/>
+        </h:form>
+    </h:body>
+</html>
+

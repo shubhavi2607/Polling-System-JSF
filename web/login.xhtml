@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://xmlns.jcp.org/jsf/html"
+       xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Login</title>
+    </h:head>
+    <h:body>
+        <h1>LOGIN</h1>   
+        
+        <h:form>
+            <h:commandLink id="command-id" action="aboutUs.xhtml">  
+            <h:outputText value="Home"></h:outputText>  
+            </h:commandLink>
+        </h:form>
+        
+        <br/><br/>
+        
+        <h:form>
+            
+            <!-- username -->
+            <h:outputLabel for="textuser">
+                <h:outputText value="Enter the username" binding="#{L.textuser}"/>
+                <h:inputText id="textuser" value="#{L.username}" required="true">
+                    <f:validateLength minimum ="4"/>
+                </h:inputText>
+            </h:outputLabel>
+                        
+            <!-- Password -->
+             <h:outputLabel for="textpass">
+                <h:outputText value="Enter the Password "/>
+                <h:inputSecret id="textpass" value="#{L.pass}" required="true">
+                </h:inputSecret>
+            </h:outputLabel>
+            
+           <br/><br/>
+           <h:messages styleClass="error"/>
+           <br/>
+           
+            <!-- Login command button -->
+            <h:commandButton id="login-button" value="Login" action="#{L.submit}"/>
+            
+        </h:form>
+        
+        <br/>
+        
+        <h:form>
+            <!-- Register command button -->
+            <h:commandButton id="register-button" value="Register" action="index.xhtml"/>
+        </h:form>
+    </h:body>
+</html>

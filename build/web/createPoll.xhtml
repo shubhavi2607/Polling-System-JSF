@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://xmlns.jcp.org/jsf/html"
+       xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Create Poll</title>
+    </h:head>
+    <h:body>
+        <h1>Create Poll</h1>
+        
+        <h:form>
+  
+            <!-- username -->
+                USERNAME: #{L.username}
+            
+            <br/><br/>
+            
+            <!-- Question -->
+            <h:outputLabel for="textques">
+                <h:outputText value="Enter Question"/>
+                <h:inputText id="textques" value="#{cpoll.ques}" required="true">
+                    <f:validateLength minimum ="5"/>
+                </h:inputText>
+            </h:outputLabel>
+            
+            <br/><br/>            
+            
+            <!-- Option1 -->
+             <h:outputLabel for="op1">
+                <h:outputText value="Option 1"/>
+                <h:inputText id="op1" value="#{cpoll.op1}" required="true"/>
+            </h:outputLabel>
+            
+            <br/><br/>
+            
+            <!-- Option2 -->
+            <h:outputLabel for="op2">
+                <h:outputText value="Option 2"/>
+                <h:inputText id="op2" value="#{cpoll.op2}" required="true"/>
+            </h:outputLabel>
+            
+            <br/><br/>
+            
+            <!-- Option3 -->
+            <h:outputLabel for="op3">
+                <h:outputText value="Option 3"/>
+                <h:inputText id="op3" value="#{cpoll.op3}" required="false"/>
+            </h:outputLabel>
+            
+            <br/><br/>
+            
+            <br/><br/>
+            <br/>
+            <!-- create command button -->
+            <h:commandButton id="create-button" value="Create" action="#{cpoll.creatp}"/>
+            
+        </h:form>
+    </h:body>
+</html>

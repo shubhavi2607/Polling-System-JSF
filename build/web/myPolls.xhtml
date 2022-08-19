@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://xmlns.jcp.org/jsf/html"
+       xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>Polls</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        
+        <style>
+            .ques{font-size: 20px;}
+            .username{font-size: 10px; color: green;}
+        </style>
+    </head>
+    <body>
+        
+        <h:form>
+            <h1>#{L.username} Polls</h1>
+            
+            <!-- Navigation -->
+            <table cellspacing="10px">
+                <tr>
+                    <td>
+                    <h:commandLink action="#{logout.logoutUser}">  
+                    <h:outputText value="Logout"></h:outputText>  
+                    </h:commandLink>
+                    </td>
+                    <td>
+                    <h:commandLink action="allPolls.xhtml">  
+                    <h:outputText value="Polls"></h:outputText>  
+                    </h:commandLink>
+                    </td>
+                    <td>
+                    <h:commandLink action="createPoll.xhtml">  
+                    <h:outputText value="Create Poll"></h:outputText>  
+                    </h:commandLink>
+                    </td>
+                    <td>
+                    <h:commandLink action="pollstats.xhtml">  
+                    <h:outputText value="View Stats"></h:outputText>  
+                    </h:commandLink>
+                    </td>
+                </tr>
+            </table>
+            <hr/>
+          
+            <br/>
+            
+            <!-- Displaying mypolls -->
+            <h:dataTable value="#{mypolls.sendRec()}" var="u">
+                <h:column>
+                    <b><h:outputLabel for="textques">
+                        <h:outputText styleClass="ques" value="#{u.pcount}."/>
+                    </h:outputLabel></b>
+                    <b><h:outputLabel for="textques">
+                        <h:outputText styleClass="ques" value="#{u.ques}"/>
+                    </h:outputLabel></b><br/>
+                    <b><h:outputLabel for="textun">
+                        <h:outputText styleClass="username" value="#{u.un}"/>
+                    </h:outputLabel></b><br/>
+                    <h:selectOneRadio> 
+                        <f:selectItem itemValue = "#{u.op1}" itemLabel = "#{u.op1}" />
+                        <f:selectItem itemValue = "#{u.op2}" itemLabel = "#{u.op2}" />
+                        <f:selectItem itemValue = "#{u.op3}" itemLabel = "#{u.op3}" />
+                    </h:selectOneRadio>
+                    <br/>
+                    <!-- Delete command button -->
+                    <h:commandButton id="Delete-button" value="Delete Poll" action="#{mypolls.deletePoll(u.ques,u.pcount)}"/>
+                    <hr/>
+                </h:column>
+            </h:dataTable>
+            
+        </h:form>
+    </body>
+</html>
